@@ -3,7 +3,12 @@ import sys
 from pathlib import Path
 
 # One excuse: the agent blames a hallucinated calendar date, deadpan and faintly proud.
+# The brief rewards a straight-faced apology whose punch lands in the last few words,
+# so the line opens with "Sorry" and saves "proudly ahead of schedule" for the end.
 LINE = "Sorry — I scheduled the deadline for a date I hallucinated, and I've been proudly ahead of schedule ever since."
+
+if LINE != LINE.strip():
+    sys.exit("line must not carry leading or trailing white space")
 
 if not 1 <= len(LINE) <= 200:
     sys.exit(f"line must be 1-200 characters, got {len(LINE)}")
